@@ -1,0 +1,39 @@
+.tweet-btn {
+  font-family: bungee, sans-serif;
+  background-color: #4152a1;
+  color: #f7f5f0;
+  border: none;
+  text-align: center;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.area-of-text {
+  border: none;
+  border-bottom: solid black 4px;
+  background-color: #f4f1ec;
+  width: 100%;
+  resize: none;
+  line-height: 0.1em;
+}
+
+.word-counter {
+  font-family: bungee;
+}
+
+.tweet-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.tweet-fill {
+  text-align: start;
+  font-weight: bold;
+}
