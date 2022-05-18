@@ -29,6 +29,6 @@ nav {
   font-size: 1em;
 }
 
-.fa-solid {
+body > nav > div > i{
   color: red;
 }
