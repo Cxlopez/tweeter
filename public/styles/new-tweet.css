@@ -20,10 +20,10 @@
   background-color: #f4f1ec;
   width: 100%;
   resize: none;
-  line-height: 0.1em;
+  line-height: 0.9em;
 }
 
-.word-counter {
+.counter {
   font-family: bungee;
 }
 
