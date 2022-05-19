@@ -7,6 +7,12 @@
   font-size: large;
   display: flex;
   justify-content: space-between;
+  box-shadow: inset 0000 goldenrod;
+  transition: ease-out 0.3s;
+}
+
+.tweet-btn:hover {
+  box-shadow: inset 80px 000 goldenrod;
 }
 
 .tweet-form {
