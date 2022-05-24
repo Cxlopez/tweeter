@@ -1,4 +1,4 @@
-article.tweet-container {
+article {
   display: flex;
   flex-direction: column;
   border: 3px solid black;
@@ -7,35 +7,35 @@ article.tweet-container {
   font-size: medium;
 }
 
-article.tweet-container:hover {
+article:hover {
   box-shadow: 10px 10px lightgrey;
 }
 
-article.tweet-container .tweet, footer, p {
+article .tweet, footer, p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: auto;
 }
 
-article.tweet-container .tweet div {
+article .tweet div {
   align-items: center;
   color: grey;
 }
 
-article.tweet-container .tweet div {
+article .tweet div {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
 }
 
-article.tweet-container .tweet div > p {
+article .tweet div > p {
   margin-left: 0.5em;
   height: auto;
 }
 
-article.tweet-container .tweet div > i {
+article .tweet div > i {
   size: 3000px;
 }
 
