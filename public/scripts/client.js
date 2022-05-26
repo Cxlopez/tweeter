@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -62,8 +63,20 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 $(document).ready(function() {
+
+  $('form').submit(function(event) {
+    event.preventDefault();
+    const form = $(this);
+    const text = form.serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: text
+    });
+    console.log('text', text);
+  });
+
+
   renderTweets(data);
+
 });
-
-
-
