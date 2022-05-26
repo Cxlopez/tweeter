@@ -21,6 +21,9 @@ $(document).ready(function () {
 
     $.post('/tweets', text)
       .then(loadTweets);
+      const counter = '#tweet-text + div output';
+      $("#tweet-text").val("");
+        $(counter).text("140");
     console.log('text', text);
   });
 
@@ -47,7 +50,14 @@ const renderTweets = function (tweets) {
   }
 };
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweet) => {
+  const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
   let $tweet = `<article>
   <header class="tweet">
     <div>
@@ -56,7 +66,7 @@ const createTweetElement = (tweet) => {
     </div>
     <p class ="username">${tweet.user.handle}</p>
   </header>
-  <p class="tweet-message">${tweet.content.text}</p>
+  ${safeHTML}
   <footer>
     <p class="tweet-date">${timeago.format(tweet.created_at)}</p>
     <div class="react-icons">
