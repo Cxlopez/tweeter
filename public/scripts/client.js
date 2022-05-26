@@ -4,30 +4,33 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function () {
+$(document).ready(function() {
 
-  $('form').on('submit', function (event) {
+  $('form').on('submit', function(event) {
     event.preventDefault();
     const form = $(this);
     const text = form.serialize();
 
+    $('.alert-user').slideUp();
     if ($('#tweet-text').val().length <= 1) {
-      return alert('You havent typed anything >:|');
+      $('.alert-user').slideDown(750).text('You have not typed anything, don\'t be shy!   😎');
+      return;
     }
 
     if ($('#tweet-text').val().length >= 141) {
-      return alert('You have exceded character limit');
+      $('.alert-user').slideDown(750).text('You have typed too much! 😵‍💫 cut us some slack please!');
+      return;
     }
 
     $.post('/tweets', text)
       .then(loadTweets);
-      const counter = '#tweet-text + div output';
-      $("#tweet-text").val("");
-        $(counter).text("140");
+    const counter = '#tweet-text + div output';
+    $("#tweet-text").val("");
+    $(counter).text("140");
     console.log('text', text);
   });
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.get('/tweets')
       .then(renderTweets);
 
@@ -37,7 +40,7 @@ $(document).ready(function () {
 
 });
 
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
@@ -50,7 +53,7 @@ const renderTweets = function (tweets) {
   }
 };
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
