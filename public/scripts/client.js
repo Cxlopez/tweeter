@@ -46,9 +46,12 @@ $(document).ready(function() {
     const form = $(this);
     const text = form.serialize();
 
-    if (text.length <= 1) {
-      $('.alert').slideDown(1000).text("you gotta say something");
-      return;
+    if ($('#tweet-text').val().length <= 1) {
+      return alert('You havent typed anything >:|');
+    }
+
+    if ($('#tweet-text').val().length >= 141) {
+      return alert('You have exceded character limit');
     }
 
 
