@@ -4,17 +4,46 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+$(document).ready(function () {
 
+  $('form').on('submit', function (event) {
+    event.preventDefault();
+    const form = $(this);
+    const text = form.serialize();
 
-const renderTweets = function(tweets) {
+    if ($('#tweet-text').val().length <= 1) {
+      return alert('You havent typed anything >:|');
+    }
+
+    if ($('#tweet-text').val().length >= 141) {
+      return alert('You have exceded character limit');
+    }
+
+    $.post('/tweets', text)
+      .then(loadTweets);
+    console.log('text', text);
+  });
+
+  const loadTweets = function () {
+    $.get('/tweets')
+      .then(renderTweets);
+
+  };
+
+  loadTweets();
+
+});
+
+const renderTweets = function (tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
-  $('.tweet-container').html('');
+  const container = $('.tweet-container');
+  container.empty();
 
   for (const tweet of tweets) {
     const tweetVal = createTweetElement(tweet);
-    $('.tweet-container').append(tweetVal);
+    container.prepend(tweetVal);
   }
 };
 
@@ -39,40 +68,3 @@ const createTweetElement = (tweet) => {
 </article>`;
   return $tweet;
 };
-$(document).ready(function() {
-
-  $('form').submit(function(event) {
-    event.preventDefault();
-    const form = $(this);
-    const text = form.serialize();
-
-    if ($('#tweet-text').val().length <= 1) {
-      return alert('You havent typed anything >:|');
-    }
-
-    if ($('#tweet-text').val().length >= 141) {
-      return alert('You have exceded character limit');
-    }
-
-
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: text
-    }).then(loadTweets);
-    console.log('text', text);
-  });
-
-  const loadTweets = function() {
-    $.ajax({
-      method: 'GET',
-      url: '/tweets',
-      dataType: 'JSON',
-      
-    }).then(renderTweets);
-    
-  };
-
-  loadTweets();
-
-});
