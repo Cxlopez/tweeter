@@ -43,3 +43,15 @@
   text-align: start;
   font-weight: bold;
 }
+.alert-user {
+  margin: 0px 0.5em 0px 0.5em;
+  color: rgb(245, 82, 53);
+  font-weight: bold;
+  border: rgb(245, 82, 53) solid 3px;
+  border-radius: 10px;
+  padding: 0.5em 10px 5px 10px;
+  text-align: center;
+  font-size: 18px;
+  display: none;
+}
+
