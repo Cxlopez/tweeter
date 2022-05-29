@@ -60,7 +60,7 @@ const escape = function(str) {
 };
 
 const createTweetElement = (tweet) => {
-  const safeHTML = `<p>${escape(tweet.content.text)}</p>`;
+  const safeHTML = `<p class="tweet-text-log">${escape(tweet.content.text)}</p>`;
   let $tweet = `<article>
   <header class="tweet">
     <div>
@@ -68,8 +68,8 @@ const createTweetElement = (tweet) => {
       <p>${tweet.user.name}</p>
     </div>
     <p class ="username">${tweet.user.handle}</p>
-  </header>
-  ${safeHTML}
+    </header>
+    ${safeHTML}
   <footer>
     <p class="tweet-date">${timeago.format(tweet.created_at)}</p>
     <div class="react-icons">
