@@ -40,6 +40,7 @@ $(document).ready(function() {
 
 });
 
+// function for rendering tweets
 const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -53,12 +54,14 @@ const renderTweets = function(tweets) {
   }
 };
 
+//for preventing cross-site scripting
 const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+//function for creatin tweets
 const createTweetElement = (tweet) => {
   const safeHTML = `<p class="tweet-text-log">${escape(tweet.content.text)}</p>`;
   let $tweet = `<article>

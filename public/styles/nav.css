@@ -33,6 +33,7 @@ body > nav > div >i{
   color: red;
 }
 
+/* Media queries */
 @media only screen and (max-width: 1024px) {
   nav {
     background-color: #141e24;

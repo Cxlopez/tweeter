@@ -35,7 +35,7 @@ body {
  .logo {
    font-family: bungee, sans-serif;
  }
-
+/* Media queries */
  @media only screen and (min-width: 1024px) {
   .container {
     display: flex;
@@ -48,6 +48,7 @@ body {
   }
 }
 
+/* Media queries */
 @media only screen and (min-width: 1024px) {
   body {
     display: flex;
