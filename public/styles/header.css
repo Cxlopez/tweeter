@@ -10,3 +10,35 @@ body > header {
   background-image: url("https://www.transparenttextures.com/patterns/white-wall-3-2.png");
   color: slategray;
 }
+
+/* media queries */
+@media only screen and (min-width: 1024px) {
+  body > header {
+    /* flex-direction: column; */
+    align-items: center;
+    margin: 8em 5em 0em 5em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body > header {
+    width: 30vw;
+    height: 300px;
+    border-radius: 10px;
+    padding-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body > header img {
+    height: 150px;
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body > header h2 {
+    font-size: xx-large;
+  }
+}

@@ -29,6 +29,13 @@ nav {
   font-size: 1em;
 }
 
-body > nav > div > i{
+body > nav > div >i{
   color: red;
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: #141e24;
+    background-image: url("https://www.transparenttextures.com/patterns/white-wall-3-2.png");
+  }
 }
